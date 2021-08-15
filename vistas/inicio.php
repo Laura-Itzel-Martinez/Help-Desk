@@ -36,7 +36,7 @@
     </div>
     
 <?php 
-    include "footer.php"; 
+    include "footer.php";
     
     }else{
         header("location:../index.html");

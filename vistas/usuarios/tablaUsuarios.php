@@ -78,7 +78,8 @@
                     onclick="obtenerDatosUsuario(<?php echo $mostrar ['idUsuario']; ?>)"
                 >
                     Editar</button></td>
-                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+
+                <td><button class="btn btn-danger btn-sm" onclick="eliminarUsuario(<?php echo $mostrar ['idUsuario']; ?>)" >Eliminar</button></td>
                
                 
             </tr>

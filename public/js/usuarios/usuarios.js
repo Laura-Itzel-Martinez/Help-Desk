@@ -65,3 +65,32 @@ function actualizarUsuario(){
     });
     return false;
 }
+function eliminarUsuario(idUsuario){
+    Swal.fire({
+        title: 'Estas seguro de eliminar este registro?',
+        text: "Una vez eliminado no podra ser recuperado!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type:"POST",
+                data: "idUsuario=" + idUsuario,
+                url: "../procesos/usuarios/crud/eliminarUsuario.php",
+                success:function(respuesta){
+                    respuesta=respuesta.trim();
+                    if (respuesta==1) {
+                        $('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
+                        Swal.fire(":)","Eliminado con exito","success");
+                    } else {
+                        Swal.fire(":(","Fallo al eliminar" + respuesta,"error");
+                    }
+                }
+            });
+        }
+      });
+    return false;
+}
